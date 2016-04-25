@@ -11,21 +11,40 @@
     </style>
 </head>
 <body ng-controller="AlumnoController">
-  <h1 class="center-align">List of Alumns</h1>
+  <h1 class="center-align white-text">List of Alumns</h1>
   <div class="container center-align centrado">
       <div class="row">
           <div class="col s8 m8 l8 center-align" >
              <div class="card red darken-4 center-align">
-                 <div class="card-content white-text" ng-repeat="alumno in alumnos">
+                 <div class="card-content white-text" ng-repeat="alumno in alumnos | orderBy: 'nombre'">
                      <span class="card-title section"> {{ alumno.nombre}}</span>
-                     <p> {{alumno.telefono}}</p>
-                     <span>{{ alumno.curso}}</span>
+                     <p>Telefono : {{alumno.telefono}}</p>
+                     <span>Curso : {{ alumno.curso}}</span>
                      <div class="divider"></div>
                  </div>
              </div>
           </div>
       </div>
   </div>
+  
+  <!-- Formulario-->
+    <div class="container">
+        <div class="row">
+          <div class="col s8 m8 l8 center-align">
+              <div class="card-panel red darken-4 center-align">
+                  <h5 class="center-align white-text">New Alumn</h5>
+                  <div class="divider"></div>
+                  <div class="white-text">
+                      Name: <input type="text" ng-model="nuevoAlumno.nombre"><br>
+                      Tel: <input type="text" ng-model="nuuevoAlumno.telefono"><br>
+                      Course: <input type="text" ng-model="nuevoAlumo.curso"><br>
+                      <button class="btn blue" ng-click="save/()" type="submit">Save</button>
+                  </div>
+              </div>
+          </div>
+            
+        </div>
+    </div>
    <script src="js/angular.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
